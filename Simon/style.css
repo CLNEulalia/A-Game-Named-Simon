@@ -1,0 +1,30 @@
+h1 {
+    text-align: center;
+}
+
+#gameOver {
+    opacity: 25%;
+}
+
+#playField {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theBoard {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    height: 175px;
+    width: 175px;
+}
+
+.option {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 175px;
+    width: 175px;
+}
