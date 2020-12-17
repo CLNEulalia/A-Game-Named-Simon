@@ -13,11 +13,8 @@ h1 {
 }
 
 #theBoard {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
 }
 
 .option {
@@ -25,7 +22,20 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 175px;
-    width: 175px;
-    background-color: aquamarine;
+    height: 200px;
+    width: 200px;
+    margin: 1rem;
+    background-color: rgb(235, 235, 235);
+    border: .25rem;
+}
+
+#buttonOne {
+    animation-name: clicked;
+    animation-duration: .5s;
+
+}
+
+@keyframes clicked {
+    from {background:red;}
+    to {background: rgb(235, 235, 235)}
 }
