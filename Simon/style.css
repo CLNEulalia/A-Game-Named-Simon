@@ -25,17 +25,32 @@ h1 {
     height: 200px;
     width: 200px;
     margin: 1rem;
+    border-radius: 15%;
     background-color: rgb(235, 235, 235);
     border: .25rem;
+    cursor: pointer;
+    /*Shadow & Press Effect*/
+    box-shadow: 0 9px #999;
+
 }
 
-#buttonOne {
+.option:active {
+    box-shadow: 0 5px rgb(75, 75, 75);
+    transform: translateY(4px);
+}
+
+
+/* .option {
     animation-name: clicked;
     animation-duration: .5s;
 
-}
+} */
 
 @keyframes clicked {
-    from {background:red;}
-    to {background: rgb(235, 235, 235)}
+    from {
+        background: default;
+    }
+    to {
+        background: rgb(235, 235, 235)
+    }
 }
