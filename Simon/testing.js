@@ -25,13 +25,30 @@
     </div>
 */
 
-// *------= Button Functionality =------*
-const topLeft = document.querySelector(".option")
+// *------= Independant Buttons =------*
+/*
+const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
     event.preventDefault()
     console.log("you clicked TL")
-    topLeft.style.background = "red"
-    // topLeft.classList.toggle = "active"    
-    // topLeft.style.background = "initial"
-    //upon click, set color to default
+
 })
+
+const topRight = document.querySelector("#buttonTwo")
+topRight.addEventListener("click", (event) => {
+    event.preventDefault()
+    console.log("you clicked TR")
+})
+
+const botLeft = document.querySelector("#buttonThree")
+botLeft.addEventListener("click", (event) => {
+    event.preventDefault()
+    console.log("you clicked BL")
+})
+
+const botRight = document.querySelector("#buttonFour")
+botRight.addEventListener("click", (event) => {
+    event.preventDefault()
+    console.log("you clicked BR")
+})
+*/
