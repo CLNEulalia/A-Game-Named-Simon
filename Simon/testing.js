@@ -1,99 +1,73 @@
-// *------= Div Set-Up =------* \\
+// *------= Start Button =------* \\
 
-/*{ <div>
-        <div class="option" id="buttonOne"><h2>1</h2></div>
-        <div class="option" id="buttonTwo"><h2>2</h2></div>
+const start = document.getElementById("start")
+start.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("we goin")
+})
 
-        <div class="option" id="buttonThree"><h2>3</h2></div>
-        <div class="option" id="buttonFour"><h2>4</h2></div>
-</div> }*/
-
-// *------= ORIGINAL =------* \\
-/*
-<div>
-        <table style="width:0%" id="theBoard">
-            <tr>
-                <td><div class="option" id="buttonOne"><h2>1</h2></div></td>
-                <td><div class="option" id="buttonTwo"><h2>2</h2></div></td>
-            </tr>
-
-            <tr>
-                <td><div class="option" id="buttonThree"><h2>3</h2></div></td>
-                <td><div class="option" id="buttonFour"><h2>4</h2></div></td>
-            </tr>
-        </table>
-    </div>
-*/
-
-// *------= Clicky ALL Buttons?? =------* \\
+// *------= Random Pattern By Increments =------* \\
 
 // const themButtons = document.getElementsByClassName("option")
-// const boxOButtons = []
+// let boxOButtons = []
+// boxOButtons.push(themButtons.length)
+// console.log(boxOButtons)
+// console.log(Math.floor(Math.random(boxOButtons.length)))
+//create start button to iniate random sequence
+//on hitting start, get one button to initiate 
+
+let boxOButtons = [
+    topLeft,
+    topRight,
+    botLeft,
+    botRight
+]
+
+randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
+console.log(randoButton)
+// *------= Store User Input =------* \\
+
+let userInputArr = []
 
 // *------= Independant Buttons =------* \\
-/*
+
 const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
     event.preventDefault()
-    console.log("you clicked TL")
-
+    userInputArr.push(topLeft)
+    console.log(userInputArr)
 })
 
 const topRight = document.querySelector("#buttonTwo")
 topRight.addEventListener("click", (event) => {
     event.preventDefault()
-    console.log("you clicked TR")
+    userInputArr.push(topRight)
+    console.log(userInputArr)
+
 })
 
 const botLeft = document.querySelector("#buttonThree")
 botLeft.addEventListener("click", (event) => {
     event.preventDefault()
-    console.log("you clicked BL")
+    userInputArr.push(botLeft)
+    console.log(userInputArr)
+
 })
 
 const botRight = document.querySelector("#buttonFour")
 botRight.addEventListener("click", (event) => {
     event.preventDefault()
-    console.log("you clicked BR")
-})
-*/
-
-// *------= use .forEach =------* \\
-
-// document.querySelectorAll(".options").forEach((themButtons) => {
-//     themButtons.addEventListener("click", (event) => {
-//         event.preventDefault()
-//         console.log(themButtons)
-//     })
-// })
-
-// *------= Independant Buttons =------* \\
-/*
-const topLeft = document.querySelector("#buttonOne")
-topLeft.addEventListener("click", (event) => {
-    event.preventDefault()
-    console.log("you clicked TL")
+    userInputArr.push(botRight)
+    console.log(userInputArr)
 
 })
-*/
 
-// *------= For Loop buttons -> Array =------* \\
+// *------= Reset Button =------* \\
 
-// const themButtons = document.getElementsByClassName("option")
-// const boxOButtons = []
+//Button that clears let userInputArr = []
 
-/*
-for (let i=0; i<themButtons.length; i++) {
-    themButtons[i].addEventListener("click", (event) => {
-        event.preventDefault()
-        if (document.getElementById("buttonOne").onclick = true) {
-            console.log("topLeft")
-        } else if (document.getElementById("buttonTwo").onclick = true) {
-            console.log("topRight")
-        } else {
-            console.log("what button am i?")
-        }
-    })
-}
-*/
-//
+const reset = document.getElementById("reset")
+reset.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("we done")
+})

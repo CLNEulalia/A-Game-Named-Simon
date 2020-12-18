@@ -1,21 +1,3 @@
-// *------= Start Button =------* \\
-
-const start = document.getElementById("start")
-start.addEventListener("click", (event) => {
-    event.preventDefault();
-    console.log("we goin")
-})
-
-// *------= Random Pattern By Increments =------* \\
-
-const themButtons = document.getElementsByClassName("option")
-let boxOButtons = []
-boxOButtons.push(themButtons.length)
-console.log(boxOButtons)
-console.log(Math.floor(Math.random(boxOButtons.length)))
-//create start button to iniate random sequence
-//on hitting start, get one button to initiate 
-
 // *------= Store User Input =------* \\
 
 let userInputArr = []
@@ -53,6 +35,26 @@ botRight.addEventListener("click", (event) => {
 
 })
 
+// *------= Random Pattern By Increments =------* \\
+
+let boxOButtons = [
+    topLeft,
+    topRight,
+    botLeft,
+    botRight
+]
+
+
+// *------= Start Button =------* \\
+
+const start = document.getElementById("start")
+start.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("we goin in")
+    let randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
+    console.log(randoButton)
+})
+
 // *------= Reset Button =------* \\
 
 //Button that clears let userInputArr = []
@@ -60,6 +62,7 @@ botRight.addEventListener("click", (event) => {
 const reset = document.getElementById("reset")
 reset.addEventListener("click", (event) => {
     event.preventDefault();
+    userInputArr.length = 0
+    console.log(userInputArr)
     console.log("we done")
 })
-
