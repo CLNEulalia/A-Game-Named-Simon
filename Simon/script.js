@@ -1,44 +1,44 @@
-console.log("Swiggity swooty, Simon's on duty")
-/*
-<div class="option" id="buttonOne"> // TOP LEFT - (Red)
-<div class="option" id="buttonTwo"> // TOP RIGHT - (Blue)
-<div class="option" id="buttonThree"> // BOTTOM LEFT - (Green)
-<div class="option" id="buttonFour"> // BOTTOM RIGHT - (Yellow)
 
-button background defuault rgb(235, 235, 235)
+// *------= Store User Input =------*
 
-*/
+let userInputArr = []
 
-// *------= Clicky ALL Buttons?? =------*
-
-const themButtons = document.getElementsByClassName("option")
-
-const boxOButtons = []
-
-// *------= For Loop buttons -> Array =------*
-
-for (let i=0; i<themButtons.length; i++) {
-    themButtons[i].addEventListener("click", (event) => {
-        event.preventDefault()
-        console.log("clicky clicky")
-    })
-}
-
-// *------= use .forEach =------*
-
-// document.querySelectorAll(".options").forEach((themButtons) => {
-//     themButtons.addEventListener("click", (event) => {
-//         event.preventDefault()
-//         console.log(themButtons)
-//     })
-// })
 // *------= Independant Buttons =------*
-/*
+
 const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
     event.preventDefault()
-    console.log("you clicked TL")
+    userInputArr.push(topLeft)
+    console.log(userInputArr)
+})
+
+const topRight = document.querySelector("#buttonTwo")
+topRight.addEventListener("click", (event) => {
+    event.preventDefault()
+    userInputArr.push(topRight)
+    console.log(userInputArr)
 
 })
-*/
 
+const botLeft = document.querySelector("#buttonThree")
+botLeft.addEventListener("click", (event) => {
+    event.preventDefault()
+    userInputArr.push(botLeft)
+    console.log(userInputArr)
+
+})
+
+const botRight = document.querySelector("#buttonFour")
+botRight.addEventListener("click", (event) => {
+    event.preventDefault()
+    userInputArr.push(botRight)
+    console.log(userInputArr)
+
+})
+
+
+
+//onEvent//click// pull the value of the item  
+
+// let randomButtons = Math.floor(Math.random(themButtons))
+// console.log(randomButtons.length)
