@@ -97,3 +97,9 @@ for (let i=0; i<themButtons.length; i++) {
 }
 */
 //
+
+// *------= Comparison Check =------* \\
+
+// if (userInputArr === randoButton) {
+//     console.log("ready for next level")
+// }
