@@ -1,4 +1,4 @@
-// *------= Div Set-Up =------*
+// *------= Div Set-Up =------* \\
 
 /*{ <div>
         <div class="option" id="buttonOne"><h2>1</h2></div>
@@ -8,7 +8,7 @@
         <div class="option" id="buttonFour"><h2>4</h2></div>
 </div> }*/
 
-// *------= ORIGINAL =------*
+// *------= ORIGINAL =------* \\
 /*
 <div>
         <table style="width:0%" id="theBoard">
@@ -25,12 +25,12 @@
     </div>
 */
 
-// *------= Clicky ALL Buttons?? =------*
+// *------= Clicky ALL Buttons?? =------* \\
 
 // const themButtons = document.getElementsByClassName("option")
 // const boxOButtons = []
 
-// *------= Independant Buttons =------*
+// *------= Independant Buttons =------* \\
 /*
 const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
@@ -58,7 +58,7 @@ botRight.addEventListener("click", (event) => {
 })
 */
 
-// *------= use .forEach =------*
+// *------= use .forEach =------* \\
 
 // document.querySelectorAll(".options").forEach((themButtons) => {
 //     themButtons.addEventListener("click", (event) => {
@@ -67,7 +67,7 @@ botRight.addEventListener("click", (event) => {
 //     })
 // })
 
-// *------= Independant Buttons =------*
+// *------= Independant Buttons =------* \\
 /*
 const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
@@ -77,7 +77,11 @@ topLeft.addEventListener("click", (event) => {
 })
 */
 
-// *------= For Loop buttons -> Array =------*
+// *------= For Loop buttons -> Array =------* \\
+
+// const themButtons = document.getElementsByClassName("option")
+// const boxOButtons = []
+
 /*
 for (let i=0; i<themButtons.length; i++) {
     themButtons[i].addEventListener("click", (event) => {

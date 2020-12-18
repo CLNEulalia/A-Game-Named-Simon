@@ -1,9 +1,16 @@
+// *------= Random Pattern By Increments =------* \\
 
-// *------= Store User Input =------*
+const themButtons = document.getElementsByClassName("option")
+let boxOButtons = []
+boxOButtons.push(themButtons.length)
+console.log(boxOButtons)
+// console.log(Math.floor(Math.random(boxOButtons.length)))
+
+// *------= Store User Input =------* \\
 
 let userInputArr = []
 
-// *------= Independant Buttons =------*
+// *------= Independant Buttons =------* \\
 
 const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
@@ -36,9 +43,4 @@ botRight.addEventListener("click", (event) => {
 
 })
 
-
-
-//onEvent//click// pull the value of the item  
-
-// let randomButtons = Math.floor(Math.random(themButtons))
-// console.log(randomButtons.length)
+// *------=  =------* \\
