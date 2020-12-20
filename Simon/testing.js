@@ -8,7 +8,7 @@ const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topLeft) //pushes to user input's array
-    console.log(userInputArr)
+    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -16,7 +16,7 @@ const topRight = document.querySelector("#buttonTwo")
 topRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topRight) //pushes to user input's array
-    console.log(userInputArr)
+    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -24,7 +24,7 @@ const botLeft = document.querySelector("#buttonThree")
 botLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botLeft) //pushes to user input's array
-    console.log(userInputArr)
+    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -32,7 +32,7 @@ const botRight = document.querySelector("#buttonFour")
 botRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botRight) //pushes to user input's array
-    console.log(userInputArr)
+    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -54,7 +54,7 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
-    console.log(randoButtonArr)
+    console.log("update randoButt", randoButtonArr)
 })
 
 //make funciton that hosts randoButtonArr, 
@@ -79,23 +79,22 @@ let buttColor = {
 }
 
 function lightEmUp(lightsArr) {
-    for(let i=0; i<lightsArr.length;i++) { //(lightsArr[i]) - the current item being iterated
-        setTimeout(() => {
-        lightsArr[i].style.boxShadow = buttColor[lightsArr[i].id].boxShadow;
-        lightsArr[i].style.backgroundColor = buttColor[lightsArr[i].id].backgroundColor;
+    let i = 0
+    lightsArr.forEach(async(item) => { //(item) -the current item being iterated
+        return await new Promise((resolve, reject) => {
             setTimeout(() => {
-                lightsArr[i].style.boxShadow = "0 9px rgb(155, 153, 153)";
-                lightsArr[i].style.backgroundColor = "rgb(235, 233, 233) ";
-                }, 0250)
-        }, 1000)
-        setTimeout(() => {
-            lightsArr[i].style.boxShadow = buttColor[lightsArr[i].id].boxShadow;
-            lightsArr[i].style.backgroundColor = buttColor[lightsArr[i].id].backgroundColor;
-        }, 1000*lightsArr)
-    }
-}   
-
-//incorporte setTimeout(function() {what you want to happen;}, milliseconds ) to initiate the start of the game
+            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.backgroundColor = buttColor[item.id].backgroundColor;
+            setTimeout(() => {
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                }, 0500*lightsArr.length)
+            }, 1000*i)
+            i++
+            
+        }) 
+    })
+}
 
 // *------= Reset ALL Button =------* \\
 
@@ -119,11 +118,12 @@ function sikeULost(event) { //is now accessible errwhere
 //REPEAT onClick listener (proceed to next level)
 // extract CALLBACK from const reset --> make function
 
-
-
 function checkWinCondition() {
+    console.log("wincondition", userInputArr, randoButtonArr)
+    if (userInputArr.length !== randoButtonArr.length) return
     if (arrayEquals(userInputArr, randoButtonArr)) {
         randoButtonArr.push(boxOButtons[Math.floor(Math.random()*boxOButtons.length)])
+        userInputArr = []
         lightEmUp(randoButtonArr)
     } else {
         sikeULost(null)
@@ -135,4 +135,12 @@ function arrayEquals(a, b) {
       Array.isArray(b) &&
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
-}
+  }
+
+//GAME IN SESSION\\
+
+//set boolean value to be associated with start button
+/*
+if game is in session (true)
+if game is not in session (false)
+*/
