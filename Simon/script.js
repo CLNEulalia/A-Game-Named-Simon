@@ -136,3 +136,11 @@ function arrayEquals(a, b) {
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
   }
+
+//GAME IN SESSION\\
+
+//set boolean value to be associated with start button
+/*
+if game is in session (true)
+if game is not in session (false)
+*/
