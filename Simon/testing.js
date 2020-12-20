@@ -9,6 +9,7 @@ topLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topLeft) //pushes to user input's array
     console.log(userInputArr)
+    checkWinCondition()
 })
 
 const topRight = document.querySelector("#buttonTwo")
@@ -16,7 +17,7 @@ topRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topRight) //pushes to user input's array
     console.log(userInputArr)
-
+    checkWinCondition()
 })
 
 const botLeft = document.querySelector("#buttonThree")
@@ -24,7 +25,7 @@ botLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botLeft) //pushes to user input's array
     console.log(userInputArr)
-
+    checkWinCondition()
 })
 
 const botRight = document.querySelector("#buttonFour")
@@ -32,7 +33,7 @@ botRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botRight) //pushes to user input's array
     console.log(userInputArr)
-
+    checkWinCondition()
 })
 
 // *------= Computer Generated Random Interation Incrementer Array =------* \\
@@ -50,48 +51,88 @@ const start = document.getElementById("start") //start button
 start.addEventListener("click", (event) => {
     event.preventDefault();
     let randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
-    randoButtonArr.push(randoButton) //pushes to the random arra
+    randoButtonArr.push(randoButton) //pushes to the random array
+    // randoButton.currentTarget.style.active = true
+    lightEmUp(randoButtonArr)
     console.log(randoButtonArr)
-    return new Promise((resolve, reject) => {
-        option.className += " active"
-        setTimeout (() => {
-            option.className = option.classname.replace(" active", "")
-            resolve()
-        }, 1000)
-    })
-    
-    const main = async () => {
-        for (let option of start) {
-            await flash(option)
-        }
-    }
 })
-//incorporte setTimeout(function() {what you want to happen;}, milliseconds ) to initiate the start of the game
 
+//make funciton that hosts randoButtonArr, 
+
+let buttColor = {
+    buttonOne: {
+        backgroundColor: "red",
+        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)"
+    },
+    buttonTwo: {
+        backgroundColor: "blue",
+        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)"
+    },
+    buttonThree: {
+        backgroundColor: "green",
+        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)"
+    },
+    buttonFour: {
+        backgroundColor: "yellow",
+        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)"
+    }
+}
+
+function lightEmUp(lightsArr) {
+    for(let i=0; i<lightsArr.length;i++) { //(lightsArr[i]) - the current item being iterated
+        setTimeout(() => {
+        lightsArr[i].style.boxShadow = buttColor[lightsArr[i].id].boxShadow;
+        lightsArr[i].style.backgroundColor = buttColor[lightsArr[i].id].backgroundColor;
+            setTimeout(() => {
+                lightsArr[i].style.boxShadow = "0 9px rgb(155, 153, 153)";
+                lightsArr[i].style.backgroundColor = "rgb(235, 233, 233) ";
+                }, 0250)
+        }, 1000)
+        setTimeout(() => {
+            lightsArr[i].style.boxShadow = buttColor[lightsArr[i].id].boxShadow;
+            lightsArr[i].style.backgroundColor = buttColor[lightsArr[i].id].backgroundColor;
+        }, 1000*lightsArr)
+    }
+}   
+
+//incorporte setTimeout(function() {what you want to happen;}, milliseconds ) to initiate the start of the game
 
 // *------= Reset ALL Button =------* \\
 
 const reset = document.getElementById("reset")
-reset.addEventListener("click", (event) => {
-    event.preventDefault();
-    userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
-    randoButtonArr.length = 0
-    console.log(userInputArr, randoButtonArr)
-    console.log("we done")
-})
+reset.addEventListener("click", event => sikeULost(event)) // calls up siekULost function
 
-//make a promise of BUTTONS
+function sikeULost(event) { //is now accessible errwhere
+        if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
+        userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
+        randoButtonArr.length = 0
+        console.log(userInputArr, randoButtonArr)
+        console.log("we done")
+}
 
-// return new Promise((resolve, reject) => {
-//     option.className += " active"
-//     setTimeout (() => {
-//         option.className = option.classname.replace(" active", "")
-//         resolve()
-//     }, 1000)
-// })
+// *------= Comparison Check =------* \\
+//AFTER CLICK START
+//onClick listener that checks 1) has user click.length = randoButtonArr.length
+//if userInputArr === randoButtonArr
+//then generate new random iteration inside randoButtonArr
+// else sikeULost(event) < --fucntion
+//REPEAT onClick listener (proceed to next level)
+// extract CALLBACK from const reset --> make function
 
-// const main = async () => {
-//     for (let option of start) {
-//         await flash(option)
-//     }
-// }
+
+
+function checkWinCondition() {
+    if (arrayEquals(userInputArr, randoButtonArr)) {
+        randoButtonArr.push(boxOButtons[Math.floor(Math.random()*boxOButtons.length)])
+        lightEmUp(randoButtonArr)
+    } else {
+        sikeULost(null)
+}}
+
+//halpfunction within wincondition to check if both arrays are equal\\
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+}

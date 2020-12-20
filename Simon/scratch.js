@@ -136,24 +136,41 @@ for (let i=0; i<themButtons.length; i++) {
 // *------= That Stupid Start Button =------* \\
 //make a promise of BUTTONS
 
-// return new Promise((resolve, reject) => {
-//     option.className += " active"
-//     setTimeout (() => {
-//         option.className = option.classname.replace(" active", "")
-//         resolve()
-//     }, 1000)
-// })
+return new Promise((resolve, reject) => {
+    option.className += " active"
+    setTimeout (() => {
+        option.className = option.classname.replace(" active", "")
+        resolve()
+    }, 1000)
+})
 
-// const main = async () => {
-//     for (let option of start) {
-//         await flash(option)
-//     }
-// }
+const main = async () => {
+    for (let option of start) {
+        await flash(option)
+    }
+}
 
 // fuck that  ^^^^
 
 // TIMEOUT \\
-
+funcfunction lightEmUp(lightsArr) {
+    let i = 0
+    lightsArr.forEach(async(item) => { //(item) -the current item being iterated
+        return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+            console.log(item.id)
+            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.backgroundColor = buttColor[item.id].backgroundColor;
+            setTimeout(() => {
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                }, 0250)
+            }, 1000*i)
+            i++
+            
+        }) 
+    })
+}
 //make funciton that hosts randoButtonArr, 
 
 
