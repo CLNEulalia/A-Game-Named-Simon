@@ -58,12 +58,31 @@ start.addEventListener("click", (event) => {
 
 //make funciton that hosts randoButtonArr, 
 
+let buttColor = {
+    buttonOne: {
+        backgroundColor: "red",
+        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)"
+    },
+    buttonTwo: {
+        backgroundColor: "blue",
+        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)"
+    },
+    buttonThree: {
+        backgroundColor: "green",
+        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)"
+    },
+    buttonFour: {
+        backgroundColor: "yellow",
+        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)"
+    }
+}
 
 function lightEmUp(lightsArr) {
     lightsArr.forEach((item) => { //(item) -the current item being iterated
         setTimeout(() => {
-            item.style.boxShadow = "0px 0px 15px 5px rgba(216, 26, 26, 0.75)";
-            item.style.backgroundColor = "red";
+            console.log(item.id)
+            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.backgroundColor = buttColor[item.id].backgroundColor;
             setTimeout(() => {
                 item.style.boxShadow = "0 9px rgb(155, 153, 153)";
                 item.style.backgroundColor = "rgb(235, 233, 233) ";
