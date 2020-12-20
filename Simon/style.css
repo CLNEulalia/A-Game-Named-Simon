@@ -40,6 +40,7 @@ h1 {
 .option:active {
     box-shadow: 0 5px rgb(75, 75, 75);
     transform: translateY(4px);
+    /* transition: all 0.25s linear; */
 }
 
 #buttonOne:active {

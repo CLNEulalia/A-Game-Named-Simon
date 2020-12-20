@@ -88,13 +88,14 @@ function lightEmUp(lightsArr) {
             setTimeout(() => {
                 item.style.boxShadow = "0 9px rgb(155, 153, 153)";
                 item.style.backgroundColor = "rgb(235, 233, 233) ";
-                }, 0500*lightsArr.length)
+                }, 1000*lightsArr.length)
             }, 1000*i)
             i++
-            
         }) 
     })
 }
+
+//2 functions, 1 to remove the addEventListner for ALL buttons, 1 to return(re-create) addEventListener for ALL buttons
 
 // *------= Reset ALL Button =------* \\
 

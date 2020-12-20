@@ -136,24 +136,25 @@ for (let i=0; i<themButtons.length; i++) {
 // *------= That Stupid Start Button =------* \\
 //make a promise of BUTTONS
 
-return new Promise((resolve, reject) => {
-    option.className += " active"
-    setTimeout (() => {
-        option.className = option.classname.replace(" active", "")
-        resolve()
-    }, 1000)
-})
+// return new Promise((resolve, reject) => {
+//     option.className += " active"
+//     setTimeout (() => {
+//         option.className = option.classname.replace(" active", "")
+//         resolve()
+//     }, 1000)
+// })
 
-const main = async () => {
-    for (let option of start) {
-        await flash(option)
-    }
-}
+// const main = async () => {
+//     for (let option of start) {
+//         await flash(option)
+//     }
+// }
 
 // fuck that  ^^^^
 
-// TIMEOUT \\
-funcfunction lightEmUp(lightsArr) {
+// *------= SEQUENCE AND LIGHTEMUP =------* \\
+/* // NO TOUCHY
+function lightEmUp(lightsArr) {
     let i = 0
     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
         return await new Promise((resolve, reject) => {
@@ -171,15 +172,82 @@ funcfunction lightEmUp(lightsArr) {
         }) 
     })
 }
-//make funciton that hosts randoButtonArr, 
+*/ // NO TOUCHY
 
+// *------= FAHIM'S VERSION =------* \\
 
-// function lightEmUp(lightsArr) {
-//     lightsArr.forEach((item) => { //(item) -the current item being iterated
-//         setTimeout(() => {
-//             item.style.boxShadow = "0px 0px 15px 5px rgba(216, 26, 26, 0.75)";
-//             item.style.backgroundColor = "red";
-//         }, 1500)
+function lightEmUp(lightsArr) {
+    let i = 0
+    // setInterval(() => {
+    //     if (i > 0) {
+    //         const previous = lightsArr[i - 1];
+    //         previous.style.boxShadow = "0 9px rgb(155, 153, 153)";
+    //         previous.style.backgroundColor = "rgb(235, 233, 233) ";
+    //     }
+    //     const item = lightsArr[i];
+    //     item.style.boxShadow = buttColor[item.id].boxShadow;
+    //     item.style.backgroundColor = buttColor[item.id].backgroundColor;
+    //     i++;
+    // }, 0250);
+lightsArr.forEach((item) => { //(item) -the current item being iterated
+    item.style.boxShadow = buttColor[item.id].boxShadow;
+    item.style.backgroundColor = buttColor[item.id].backgroundColor;
+    setTimeout(() => {
+        item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+        item.style.backgroundColor = "rgb(235, 233, 233) ";
+    }, 0250);
+    return await new Promise((resolve, reject) => {
+        setTimeout(() => {
+        item.style.boxShadow = buttColor[item.id].boxShadow;
+        item.style.backgroundColor = buttColor[item.id].backgroundColor;
+        setTimeout(() => {
+            item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+            item.style.backgroundColor = "rgb(235, 233, 233) ";
+            }, 0250)
+        }, 1000*i)
+        i++
         
-//     })
-// }
+    }) 
+})
+}
+
+//*------= REATTEMPT AT SEQUENCE & LIGHTUP =------*\\
+
+// Set a variable that does something like currentLevel * 250, we'll call it 'levelTimer' for now, and then have your setTimeout number be 5000 (or whatever time youre using) - levelTimer
+
+// That way your timer will decrease with each level you go up, making the game more challenging without even having to touch the sequencer
+
+function lightEmUp(lightsArr) {
+    let i = 0
+    lightsArr.forEach(async(item) => { //(item) -the current item being iterated
+        return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+            console.log(item.id)
+            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.backgroundColor = buttColor[item.id].backgroundColor;
+            setTimeout(() => {
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                }, 0250*lightsArr.length)
+            }, 1000)
+            i++
+        }) 
+    })
+}
+
+// *------= MOST RECENT POSSIBLE FAILED SUCCESS =------* \\
+
+function lightEmUp(lightsArr) {
+    let i = 0
+    setInterval(() => {
+        if (i > 0) {
+            const previous = lightsArr[i - 1];
+            previous.style.boxShadow = "0 9px rgb(155, 153, 153)";
+            previous.style.backgroundColor = "rgb(235, 233, 233) ";
+        }
+        const item = lightsArr[i];
+        item.style.boxShadow = buttColor[item.id].boxShadow;
+        item.style.backgroundColor = buttColor[item.id].backgroundColor;
+        i++;
+    }, 1250); //it's greater than 1 second so it works????
+}

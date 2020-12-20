@@ -54,7 +54,7 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
-    console.log("update randoButt", randoButtonArr)
+    // console.log("update randoButt", randoButtonArr)
 })
 
 //make funciton that hosts randoButtonArr, 
@@ -80,21 +80,35 @@ let buttColor = {
 
 function lightEmUp(lightsArr) {
     let i = 0
-    lightsArr.forEach(async(item) => { //(item) -the current item being iterated
-        return await new Promise((resolve, reject) => {
-            setTimeout(() => {
-            item.style.boxShadow = buttColor[item.id].boxShadow;
-            item.style.backgroundColor = buttColor[item.id].backgroundColor;
-            setTimeout(() => {
-                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
-                item.style.backgroundColor = "rgb(235, 233, 233) ";
-                }, 0500*lightsArr.length)
-            }, 1000*i)
-            i++
-            
-        }) 
-    })
+    setInterval(() => {
+        if (i > 0) {
+            const previous = lightsArr[i - 1];
+            previous.style.boxShadow = "0 9px rgb(155, 153, 153)";
+            previous.style.backgroundColor = "rgb(235, 233, 233) ";
+        }
+        const item = lightsArr[i];
+        item.style.boxShadow = buttColor[item.id].boxShadow;
+        item.style.backgroundColor = buttColor[item.id].backgroundColor;
+        i++;
+    }, 1250); //it's greater than 1 second so it works????
 }
+
+// function lightEmUp(lightsArr) {
+//     let i = 0
+//     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
+//         return await new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//             item.style.boxShadow = buttColor[item.id].boxShadow;
+//             item.style.backgroundColor = buttColor[item.id].backgroundColor;
+//             setTimeout(() => {
+//                 item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+//                 item.style.backgroundColor = "rgb(235, 233, 233) ";
+//                 }, 0250*lightsArr.length)
+//             }, 1000*i)
+//             i++
+//         }) 
+//     })
+// }
 
 // *------= Reset ALL Button =------* \\
 
@@ -105,8 +119,8 @@ function sikeULost(event) { //is now accessible errwhere
         if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
         userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
         randoButtonArr.length = 0
-        console.log(userInputArr, randoButtonArr)
-        console.log("we done")
+        // console.log(userInputArr, randoButtonArr)
+        // console.log("we done")
 }
 
 // *------= Comparison Check =------* \\
@@ -119,7 +133,7 @@ function sikeULost(event) { //is now accessible errwhere
 // extract CALLBACK from const reset --> make function
 
 function checkWinCondition() {
-    console.log("wincondition", userInputArr, randoButtonArr)
+    // console.log("wincondition", userInputArr, randoButtonArr)
     if (userInputArr.length !== randoButtonArr.length) return
     if (arrayEquals(userInputArr, randoButtonArr)) {
         randoButtonArr.push(boxOButtons[Math.floor(Math.random()*boxOButtons.length)])
