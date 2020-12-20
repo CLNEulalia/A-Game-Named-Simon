@@ -98,8 +98,71 @@ for (let i=0; i<themButtons.length; i++) {
 */
 //
 
-// *------= Comparison Check =------* \\
+// *------= Comparison Checker (?) =------* \\
 
 // if (userInputArr === randoButton) {
 //     console.log("ready for next level")
+// }
+
+// *------= Random Index & Light-Up On Start =------* \\
+
+// const boxOButtons = [ // where the computer chooses its random interation from
+//     topLeft,
+//     topRight,
+//     botLeft,
+//     botRight
+// ]
+
+// let randoButtonArr = [] // where the random sequence is stored
+
+// const start = document.getElementById("start") //start button
+// start.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     let randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
+//     randoButtonArr.push(randoButton) //pushes to the random array
+//     // randoButton.currentTarget.style.active = true
+//     console.log(randoButtonArr)
+//     ((nextIteration) => {
+//         setTimeout()
+//     })
+// })
+
+// *------= Random Interation Incrementor =------*
+
+// ((nextIteration) => {
+//     setTimeout(randoButton += boxOButtons[Math.floor(Math.random()*boxOButtons.length)], 2500)
+// })
+
+// *------= That Stupid Start Button =------* \\
+//make a promise of BUTTONS
+
+// return new Promise((resolve, reject) => {
+//     option.className += " active"
+//     setTimeout (() => {
+//         option.className = option.classname.replace(" active", "")
+//         resolve()
+//     }, 1000)
+// })
+
+// const main = async () => {
+//     for (let option of start) {
+//         await flash(option)
+//     }
+// }
+
+// fuck that  ^^^^
+
+// TIMEOUT \\
+
+//make funciton that hosts randoButtonArr, 
+
+
+// function lightEmUp(lightsArr) {
+//     lightsArr.forEach((item) => { //(item) -the current item being iterated
+//         setTimeout(() => {
+//             item.style.boxShadow = "0px 0px 15px 5px rgba(216, 26, 26, 0.75)";
+//             item.style.backgroundColor = "red";
+//         }, 1500)
+        
+//     })
 // }

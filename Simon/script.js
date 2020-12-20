@@ -35,7 +35,7 @@ botRight.addEventListener("click", (event) => {
 
 })
 
-// *------= Random Pattern By Increments =------* \\
+// *------= Computer Generated Random Interation Incrementer Array =------* \\
 
 const boxOButtons = [ // where the computer chooses its random interation from
     topLeft,
@@ -49,15 +49,31 @@ let randoButtonArr = [] // where the random sequence is stored
 const start = document.getElementById("start") //start button
 start.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("we goin in")
     let randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
-    randoButtonArr.push(randoButton)
+    randoButtonArr.push(randoButton) //pushes to the random array
+    // randoButton.currentTarget.style.active = true
+    lightEmUp(randoButtonArr)
     console.log(randoButtonArr)
 })
 
+//make funciton that hosts randoButtonArr, 
 
 
-// *------= Computer Generated Random Interation Incrementer Array =------* \\
+function lightEmUp(lightsArr) {
+    lightsArr.forEach((item) => { //(item) -the current item being iterated
+        setTimeout(() => {
+            item.style.boxShadow = "0px 0px 15px 5px rgba(216, 26, 26, 0.75)";
+            item.style.backgroundColor = "red";
+            setTimeout(() => {
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+                item.style.backgroundColor = "rgb(235, 233, 233) ";
+            }, 0250)
+        }, 1500)
+})
+}
+
+//incorporte setTimeout(function() {what you want to happen;}, milliseconds ) to initiate the start of the game
+
 
 // *------= Reset ALL Button =------* \\
 
