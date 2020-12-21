@@ -54,26 +54,30 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
-    lightEmUpTwo(randoButtonArr, console.log("I am working"))
+    // lightEmUpTwo(randoButtonArr, console.log("I am working"))
     console.log("update randoButt", randoButtonArr)
 })
 
 let buttColor = {
     buttonOne: {
-        backgroundColor: "red",
-        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)"
+        backgroundColor: "rgb(199, 0, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonTwo: {
-        backgroundColor: "blue",
-        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)"
+        backgroundColor: "rgb(0, 0, 199)",
+        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonThree: {
-        backgroundColor: "green",
-        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)"
+        backgroundColor: "rgb(0, 134, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonFour: {
-        backgroundColor: "yellow",
-        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)"
+        backgroundColor: "rgb(204, 204, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)",
+        transform: "translateY(4px)"
     }
 }
 
@@ -84,17 +88,19 @@ function lightEmUp(lightsArr) {
     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
         return await new Promise((resolve, reject) => {
             setTimeout(() => {
-            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.boxShadow = buttColor[item.id].boxShadow; //flash effect
             item.style.backgroundColor = buttColor[item.id].backgroundColor;
             setTimeout(() => {
-                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
-                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)"; //return to default
+                item.style.backgroundColor = buttColor[item.id].backgroundColor;
                 }, 0250*lightsArr.length)
             }, 1000*i)
             i++
         }) 
     })
 }
+
+
 
 // *------= Reset ALL Button =------* \\
 
