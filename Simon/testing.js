@@ -76,6 +76,27 @@ let buttColor = {
     }
 }
 
+//Saturday's Success (until it wasn't)\\
+
+function lightEmUp(lightsArr) {
+    let i = 0
+    lightsArr.forEach(async(item) => { //(item) -the current item being iterated
+        return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.backgroundColor = buttColor[item.id].backgroundColor;
+            setTimeout(() => {
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
+                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                }, 0250*lightsArr.length)
+            }, 1000*i)
+            i++
+        }) 
+    })
+}
+
+//My most recent attempt\\
+
 function lightEmUp(lightsArr) {
     let i = 0
     setInterval(() => {
@@ -87,6 +108,23 @@ function lightEmUp(lightsArr) {
         }, interval);
     }, timeout);
 }
+
+//Fahim's Suggestion\\
+
+// function lightEmUp(lightsArr) {
+//     let i = 0
+//     setInterval(() => {
+//         if (i > 0) {
+//             const previous = lightsArr[i - 1];
+//             previous.style.boxShadow = "0 9px rgb(155, 153, 153)";
+//             previous.style.backgroundColor = "rgb(235, 233, 233) ";
+//         }
+//         const item = lightsArr[i];
+//         item.style.boxShadow = buttColor[item.id].boxShadow;
+//         item.style.backgroundColor = buttColor[item.id].backgroundColor;
+//         i++;
+//     }, 0250);
+// }
 
 // *------= Reset ALL Button =------* \\
 

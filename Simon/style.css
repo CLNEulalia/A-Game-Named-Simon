@@ -43,7 +43,7 @@ h1 {
     /* transition: all 0.25s linear; */
 }
 
-#buttonOne:active {
+/* #buttonOne:active {
     background-color: red;
     box-shadow: 0px 0px 15px 5px rgba(216, 26, 26, 0.75);
 }
@@ -61,4 +61,4 @@ h1 {
 #buttonFour:active {
     background-color: yellow;
     box-shadow: 0px 0px 15px 5px rgba(238, 235, 45, 0.75);
-}
+} */
