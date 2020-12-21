@@ -105,14 +105,24 @@ function lightEmUp(lightsArr) {
 // *------= Reset ALL Button =------* \\
 
 const reset = document.getElementById("reset")
-reset.addEventListener("click", event => sikeULost(event)) // calls up siekULost function
+reset.addEventListener("click", event => clearBoard(event)) // calls up siekULost function
+
+function clearBoard(event) {
+    if (event) {event.preventDefault()}
+    userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
+    randoButtonArr.length = 0
+    gameOver.style.opacity = "0%"
+    document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+}
+
 
 function sikeULost(event) { //is now accessible errwhere
         if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
-        userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
-        randoButtonArr.length = 0
-        console.log(userInputArr, randoButtonArr)
-        console.log("we done")
+        // userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
+        // randoButtonArr.length = 0
+        gameOver.style.opacity = "100%"
+        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+
 }
 
 // *------= Comparison Check =------* \\
@@ -120,6 +130,8 @@ function sikeULost(event) { //is now accessible errwhere
 // else sikeULost(event) < --fucntion
 //REPEAT onClick listener (proceed to next level)
 // extract CALLBACK from const reset --> make function
+
+const gameOver = document.querySelector("#gameOver") //gameover text
 
 function checkWinCondition() {
     console.log("wincondition", userInputArr, randoButtonArr)
@@ -130,20 +142,14 @@ function checkWinCondition() {
         lightEmUp(randoButtonArr) // invoke lightEmUp funciton for randoButtonArr
     } else {
         sikeULost(null)
+        // gameOver.style.opacity = "100%"
+        // document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
 }}
 
-//halpfunction within wincondition to check if both arrays are equal\\
+//*------= Helper Function For Equality Check =------*\\
 function arrayEquals(a, b) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
   }
-
-//GAME IN SESSION\\
-
-//set boolean value to be associated with start button
-/*
-if game is in session (true)
-if game is not in session (false)
-*/

@@ -76,9 +76,8 @@ h1 {
 }
 
 #startText {
-    font-size: small;
+    font-size: 25px;
     text-align: center;
-    line-height: 5px;
 }
 
 /*Reset Button Design*/
@@ -100,9 +99,9 @@ h1 {
 }
 
 #resText {
-    font-size: small;
+    font-size: 25px;
     text-align: center;
-    line-height: 3px;
+    line-height: 0px;
 }
 
 /*---= Top Left =---*/

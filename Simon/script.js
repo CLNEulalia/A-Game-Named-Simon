@@ -54,40 +54,45 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
+    // lightEmUpTwo(randoButtonArr, console.log("I am working"))
     console.log("update randoButt", randoButtonArr)
 })
 
-//make funciton that hosts randoButtonArr, 
-
 let buttColor = {
     buttonOne: {
-        backgroundColor: "red",
-        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)"
+        backgroundColor: "rgb(199, 0, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonTwo: {
-        backgroundColor: "blue",
-        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)"
+        backgroundColor: "rgb(0, 0, 199)",
+        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonThree: {
-        backgroundColor: "green",
-        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)"
+        backgroundColor: "rgb(0, 134, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)",
+        transform: "translateY(4px)"
     },
     buttonFour: {
-        backgroundColor: "yellow",
-        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)"
+        backgroundColor: "rgb(204, 204, 0)",
+        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)",
+        transform: "translateY(4px)"
     }
 }
+
+// //My most recent attempt\\
 
 function lightEmUp(lightsArr) {
     let i = 0
     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
         return await new Promise((resolve, reject) => {
             setTimeout(() => {
-            item.style.boxShadow = buttColor[item.id].boxShadow;
+            item.style.boxShadow = buttColor[item.id].boxShadow; //flash effect
             item.style.backgroundColor = buttColor[item.id].backgroundColor;
             setTimeout(() => {
-                item.style.boxShadow = "0 9px rgb(155, 153, 153)";
-                item.style.backgroundColor = "rgb(235, 233, 233) ";
+                item.style.boxShadow = "0 9px rgb(155, 153, 153)"; //return to default
+                item.style.backgroundColor = buttColor[item.id].backgroundColor;
                 }, 0250*lightsArr.length)
             }, 1000*i)
             i++
@@ -95,54 +100,56 @@ function lightEmUp(lightsArr) {
     })
 }
 
-//2 functions, 1 to remove the addEventListner for ALL buttons, 1 to return(re-create) addEventListener for ALL buttons
-//OR DISABLE THE ELEMENTS
+
 
 // *------= Reset ALL Button =------* \\
 
 const reset = document.getElementById("reset")
-reset.addEventListener("click", event => sikeULost(event)) // calls up siekULost function
+reset.addEventListener("click", event => clearBoard(event)) // calls up siekULost function
+
+function clearBoard(event) {
+    if (event) {event.preventDefault()}
+    userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
+    randoButtonArr.length = 0
+    gameOver.style.opacity = "0%"
+    document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+}
+
 
 function sikeULost(event) { //is now accessible errwhere
         if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
-        userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
-        randoButtonArr.length = 0
-        console.log(userInputArr, randoButtonArr)
-        console.log("we done")
+        // userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
+        // randoButtonArr.length = 0
+        gameOver.style.opacity = "100%"
+        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+
 }
 
 // *------= Comparison Check =------* \\
-//AFTER CLICK START
-//onClick listener that checks 1) has user click.length = randoButtonArr.length
-//if userInputArr === randoButtonArr
-//then generate new random iteration inside randoButtonArr
+
 // else sikeULost(event) < --fucntion
 //REPEAT onClick listener (proceed to next level)
 // extract CALLBACK from const reset --> make function
 
+const gameOver = document.querySelector("#gameOver") //gameover text
+
 function checkWinCondition() {
     console.log("wincondition", userInputArr, randoButtonArr)
-    if (userInputArr.length !== randoButtonArr.length) return
-    if (arrayEquals(userInputArr, randoButtonArr)) {
+    if (userInputArr.length !== randoButtonArr.length) return // listener that checks 1) has user click.length = randoButtonArr.length
+    if (arrayEquals(userInputArr, randoButtonArr)) { //if userInputArr === randoButtonArr then generate new random iteration inside randoButtonArr
         randoButtonArr.push(boxOButtons[Math.floor(Math.random()*boxOButtons.length)])
         userInputArr = []
-        lightEmUp(randoButtonArr)
+        lightEmUp(randoButtonArr) // invoke lightEmUp funciton for randoButtonArr
     } else {
         sikeULost(null)
+        // gameOver.style.opacity = "100%"
+        // document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
 }}
 
-//halpfunction within wincondition to check if both arrays are equal\\
+//*------= Helper Function For Equality Check =------*\\
 function arrayEquals(a, b) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
   }
-
-//GAME IN SESSION\\
-
-//set boolean value to be associated with start button
-/*
-if game is in session (true)
-if game is not in session (false)
-*/
