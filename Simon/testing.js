@@ -54,6 +54,7 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
+    lightEmUpTwo(randoButtonArr, console.log("I am working"))
     console.log("update randoButt", randoButtonArr)
 })
 
@@ -76,7 +77,7 @@ let buttColor = {
     }
 }
 
-//Saturday's Success (until it wasn't)\\
+// //My most recent attempt\\
 
 function lightEmUp(lightsArr) {
     let i = 0
@@ -94,37 +95,6 @@ function lightEmUp(lightsArr) {
         }) 
     })
 }
-
-//My most recent attempt\\
-
-function lightEmUp(lightsArr) {
-    let i = 0
-    setInterval(() => {
-        
-    }, interval);
-    setTimeout(() => { // OUTSIDE
-        setInterval(() => { // INSIDE
-        
-        }, interval);
-    }, timeout);
-}
-
-//Fahim's Suggestion\\
-
-// function lightEmUp(lightsArr) {
-//     let i = 0
-//     setInterval(() => {
-//         if (i > 0) {
-//             const previous = lightsArr[i - 1];
-//             previous.style.boxShadow = "0 9px rgb(155, 153, 153)";
-//             previous.style.backgroundColor = "rgb(235, 233, 233) ";
-//         }
-//         const item = lightsArr[i];
-//         item.style.boxShadow = buttColor[item.id].boxShadow;
-//         item.style.backgroundColor = buttColor[item.id].backgroundColor;
-//         i++;
-//     }, 0250);
-// }
 
 // *------= Reset ALL Button =------* \\
 
