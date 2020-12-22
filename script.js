@@ -75,6 +75,7 @@ let buttColor = { //button colors are referenced in lightEmUp funciton for flash
 }
 
 function lightEmUp(lightsArr) {
+    start.removeEventListener("click", onclick, true)
     let i = 0
     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
         return await new Promise((resolve, reject) => {
@@ -98,6 +99,7 @@ reset.addEventListener("click", event => clearBoard(event)) // calls up siekULos
 
 function clearBoard(event) {
     if (event) {event.preventDefault()}
+    start.addEventListener("click", onclick, true)
     userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
     randoButtonArr.length = 0 // ^^
     gameOver.style.opacity = "0%" // hides the game over event
