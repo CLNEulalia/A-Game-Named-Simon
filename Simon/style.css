@@ -6,7 +6,7 @@ font-family: 'Special Elite', cursive;
 */
 
 body {
-    background: beige;
+    background: rgb(38, 216, 223);
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
 }
 
 #theBoard {
-    margin-top: 120px;
+    margin-top: 130px;
     /* display: flex;
     justify-content: center;
     align-items: center; */

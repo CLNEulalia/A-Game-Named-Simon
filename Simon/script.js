@@ -48,11 +48,10 @@ start.addEventListener("click", (event) => {
     event.preventDefault();
     let randoButton = boxOButtons[Math.floor(Math.random()*boxOButtons.length)]
     randoButtonArr.push(randoButton) //pushes to the random array
-    // randoButton.currentTarget.style.active = true
-    lightEmUp(randoButtonArr)
+    lightEmUp(randoButtonArr) //runs the light up function
 })
 
-let buttColor = {
+let buttColor = { //button colors are referenced in lightEmUp funciton for flash effect
     buttonOne: {
         backgroundColor: "rgb(199, 0, 0)",
         boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)",
@@ -75,8 +74,6 @@ let buttColor = {
     }
 }
 
-// //My most recent attempt\\
-
 function lightEmUp(lightsArr) {
     let i = 0
     lightsArr.forEach(async(item) => { //(item) -the current item being iterated
@@ -94,8 +91,6 @@ function lightEmUp(lightsArr) {
     })
 }
 
-
-
 // *------= Reset ALL Button =------* \\
 
 const reset = document.getElementById("reset")
@@ -104,17 +99,16 @@ reset.addEventListener("click", event => clearBoard(event)) // calls up siekULos
 function clearBoard(event) {
     if (event) {event.preventDefault()}
     userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
-    randoButtonArr.length = 0
-    gameOver.style.opacity = "0%"
-    document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length -= 1} Levels`
+    randoButtonArr.length = 0 // ^^
+    gameOver.style.opacity = "0%" // hides the game over event
 }
 
+// *------= Gave Over Event =------* \\
 
 function sikeULost(event) { //is now accessible errwhere
         if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
         gameOver.style.opacity = "100%"
-        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length -= 1} Levels`
-
+        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length -= 1} Levels!`
 }
 
 // *------= Comparison Check =------* \\
@@ -135,7 +129,7 @@ function checkWinCondition() {
         sikeULost(null)
 }}
 
-//*------= Helper Function For Equality Check =------*\\
+//*------= Helper Function For Comparison Check =------*\\
 function arrayEquals(a, b) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
