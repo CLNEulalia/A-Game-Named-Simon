@@ -52,24 +52,24 @@ start.addEventListener("click", (event) => {
 })
 
 let buttColor = { //button colors are referenced in lightEmUp funciton for flash effect
-    buttonOne: {
+    buttonOne: { //red
         backgroundColor: "rgb(199, 0, 0)",
-        boxShadow: "0px 0px 15px 5px rgba(216, 26, 26, 0.75)",
+        boxShadow: "0px 0px 20px 9px rgba(226, 58, 58, 0.83)",
         transform: "translateY(4px)"
     },
-    buttonTwo: {
+    buttonTwo: { //blue
         backgroundColor: "rgb(0, 0, 199)",
-        boxShadow: "0px 0px 15px 5px rgba(37, 16, 223, 0.75)",
+        boxShadow: "0px 0px 20px 9px rgba(44, 50, 240, 0.75)",
         transform: "translateY(4px)"
     },
-    buttonThree: {
+    buttonThree: { //green
         backgroundColor: "rgb(0, 134, 0)",
-        boxShadow: "0px 0px 15px 5px rgba(34, 235, 34, 0.75)",
+        boxShadow: "0px 0px 20px 9px rgba(54, 242, 54, 0.83)",
         transform: "translateY(4px)"
     },
-    buttonFour: {
+    buttonFour: { //yellow
         backgroundColor: "rgb(204, 204, 0)",
-        boxShadow: "0px 0px 15px 5px rgba(238, 235, 45, 0.75)",
+        boxShadow: "0px 0px 20px 9px rgba(238, 235, 45, 0.75)",
         transform: "translateY(4px)"
     }
 }

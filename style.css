@@ -34,8 +34,8 @@ h1 {
 }
 
 .option {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     margin: 2px;
     cursor: pointer;
     box-shadow: 0 9px rgb(155, 153, 153);
@@ -62,14 +62,14 @@ h1 {
 .opButtons {
     text-align: center;
     position: relative;
-    bottom: 370px;
+    bottom: 249px;
 }
 
 /*Start Button Design*/
 
 #start {
-    height: 60px;
-    width: 120px;
+    height: 40px;
+    width: 80px;
     border-radius: 90px 90px 0 0;
     background:rgb(209, 208, 208);
     box-shadow: 0 6px rgb(116, 116, 116);
@@ -84,16 +84,16 @@ h1 {
 
 #startText {
     font-family: 'Righteous', cursive;
-    font-size: 25px;
+    font-size: 12px;
     text-align: center;
 }
 
 /*Reset Button Design*/
 
 #reset {
-    height: 60px;
-    width: 120px;
-    margin: 6px;
+    height: 40px;
+    width: 80px;
+    margin: 5px;
     border-radius: 0 0 90px 90px;
     background:rgb(209, 208, 208);
     box-shadow: 0 5px rgb(116, 116, 116);
@@ -108,7 +108,7 @@ h1 {
 
 #resText {
     font-family: 'Righteous', cursive;
-    font-size: 25px;
+    font-size: 12px;
     text-align: center;
     line-height: 0px;
 }
