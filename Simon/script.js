@@ -8,7 +8,6 @@ const topLeft = document.querySelector("#buttonOne")
 topLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topLeft) //pushes to user input's array
-    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -16,7 +15,6 @@ const topRight = document.querySelector("#buttonTwo")
 topRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(topRight) //pushes to user input's array
-    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -24,7 +22,6 @@ const botLeft = document.querySelector("#buttonThree")
 botLeft.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botLeft) //pushes to user input's array
-    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -32,7 +29,6 @@ const botRight = document.querySelector("#buttonFour")
 botRight.addEventListener("click", (event) => {
     event.preventDefault()
     userInputArr.push(botRight) //pushes to user input's array
-    console.log("update userInput", userInputArr)
     checkWinCondition()
 })
 
@@ -54,8 +50,6 @@ start.addEventListener("click", (event) => {
     randoButtonArr.push(randoButton) //pushes to the random array
     // randoButton.currentTarget.style.active = true
     lightEmUp(randoButtonArr)
-    // lightEmUpTwo(randoButtonArr, console.log("I am working"))
-    console.log("update randoButt", randoButtonArr)
 })
 
 let buttColor = {
@@ -112,16 +106,14 @@ function clearBoard(event) {
     userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
     randoButtonArr.length = 0
     gameOver.style.opacity = "0%"
-    document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+    document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length -= 1} Levels`
 }
 
 
 function sikeULost(event) { //is now accessible errwhere
         if (event) {event.preventDefault();} // "if (event)" is a null check. if it aint broke, it ok
-        // userInputArr.length = 0 //Button that "clears" by setting userInputArr = []
-        // randoButtonArr.length = 0
         gameOver.style.opacity = "100%"
-        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
+        document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length -= 1} Levels`
 
 }
 
@@ -134,7 +126,6 @@ function sikeULost(event) { //is now accessible errwhere
 const gameOver = document.querySelector("#gameOver") //gameover text
 
 function checkWinCondition() {
-    console.log("wincondition", userInputArr, randoButtonArr)
     if (userInputArr.length !== randoButtonArr.length) return // listener that checks 1) has user click.length = randoButtonArr.length
     if (arrayEquals(userInputArr, randoButtonArr)) { //if userInputArr === randoButtonArr then generate new random iteration inside randoButtonArr
         randoButtonArr.push(boxOButtons[Math.floor(Math.random()*boxOButtons.length)])
@@ -142,8 +133,6 @@ function checkWinCondition() {
         lightEmUp(randoButtonArr) // invoke lightEmUp funciton for randoButtonArr
     } else {
         sikeULost(null)
-        // gameOver.style.opacity = "100%"
-        // document.getElementById("gameOver").innerHTML = `Game Over! You Complete ${randoButtonArr.length} Levels`
 }}
 
 //*------= Helper Function For Equality Check =------*\\
